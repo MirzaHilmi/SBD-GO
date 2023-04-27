@@ -43,5 +43,6 @@ func GetDB() (*gorm.DB, error) {
 func Migrate(db *gorm.DB) error {
 	return db.AutoMigrate(
 		&models.Address{},
+		&models.Agency{},
 	)
 }
