@@ -15,4 +15,5 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	golang.org/x/text v0.9.0 // indirect
+	pgregory.net/rand v1.0.2 // indirect
 )
