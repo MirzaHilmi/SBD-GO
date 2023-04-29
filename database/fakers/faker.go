@@ -4,17 +4,18 @@ import (
 	"reflect"
 
 	"github.com/go-faker/faker/v4"
+	"github.com/oklog/ulid/v2"
 	"pgregory.net/rand"
 )
 
 func LoadCustomFaker() {
+	_ = faker.AddProvider("ulid", func(v reflect.Value) (interface{}, error) {
+		return ulid.Make().String(), nil
+	})
 
 	_ = faker.AddProvider("gender", func(v reflect.Value) (interface{}, error) {
-		if rand.Intn(2) == 1 {
-			return "MALE", nil
-		}
-
-		return "FEMALE", nil
+		gender := [2]string{"MALE", "FEMALE"}
+		return gender[0], nil
 	})
 
 	_ = faker.AddProvider("age", func(v reflect.Value) (interface{}, error) {
