@@ -12,8 +12,7 @@ import (
 
 func TestSeed(t *testing.T) {
 	// Load env file
-	err := godotenv.Load("../../.env")
-	if err != nil {
+	if err := godotenv.Load("../../.env"); err != nil {
 		t.Fatal("FAILED to load Environtment Variables")
 	}
 
